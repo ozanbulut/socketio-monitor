@@ -14,6 +14,17 @@ npm install
 ```shell
 node index.js
 ```
+
+## Example python code to stream data:
+
+```py
+import requests
+
+
+requests.post('http://localhost:3000/data',json={'myData': 'myValue'})
+
+```
+
 ## Contributing
 
 Project is not actively maintained but feel free to
