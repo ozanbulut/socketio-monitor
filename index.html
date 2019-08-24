@@ -1,24 +1,32 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Socket.IO chat</title>
     <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font: 13px Helvetica, Arial; }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font: 13px Helvetica, Arial;
+      }
     </style>
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script>var state={}</script>
     <script>
-	$(function () {
-	  var socket = io();
-          socket.on('chat message', function(msg){
-		  console.log(msg);
-	     state = Object.assign(state, JSON.parse(msg));
-	     $('#messages').html( JSON.stringify(state,null,2));
-            });
-          });
-	</script>
+      var state = {};
+    </script>
+    <script>
+      $(function() {
+        var socket = io();
+        socket.on("chat message", function(msg) {
+          console.log(msg);
+          state = Object.assign(state, JSON.parse(msg));
+          $("#messages").html(JSON.stringify(state, null, 2));
+        });
+      });
+    </script>
   </head>
   <body>
     <pre id="messages"></pre>
